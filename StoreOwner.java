@@ -1,16 +1,17 @@
 import java.util.*;
 
-public class StoreOwner extends User {
+public class StoreOwner extends Customer {
 	
-	private List storesList;
+	private List stores;
 	
-	public StoreOwner(String name, String password, String email) {
-		super(name,password,email);
+	public StoreOwner(int id,String name, String password, String email) {
+		super(id,name,password,email);
 		this.storesList = new LinkedList<Store>();
 	}
 
-	public Store addStore() {
-		Scanner sc = new Scanner(System.in);
+	public void addStore(Store store) {
+		stores.add(store);
+	/*	Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the name of the store: ");
 		String name = sc.nextLine();
 		System.out.println("Enter the location of the store: ");
@@ -19,11 +20,14 @@ public class StoreOwner extends User {
 		String type = sc.nextLine();
 		Store store = new Store(name,location,type,this);
 		storesList.add(store);
-		return store;
+		return store;*/
 	}
 
-	public void addProduct(ProductsList products) {
-		Scanner sc = new Scanner(System.in);
+	public void addProductToStore(String storeName, Product product) {
+		//assgin price, quantity, brand
+		Store store = getStore(storeName);
+		store.addProduct(product);
+	/*	Scanner sc = new Scanner(System.in);
 		System.out.println("\nEnter your desired store name: ");
 		String name = sc.nextLine();
 		while (getStore(name) == null) {
@@ -42,13 +46,13 @@ public class StoreOwner extends User {
 				s.addProduct(product);
 				return;
 			}
-		}
+		}*/
 
 
 	}
 
 	public Store getStore(String name) {
-		for (Iterator i = storesList.iterator(); i.hasNext(); ) {
+		for (Iterator i = stores.iterator(); i.hasNext(); ) {
 			Store store = (Store) i.next();
 			if (store.getName().equals(name)) {
 				return store;
@@ -57,7 +61,11 @@ public class StoreOwner extends User {
 		return null;
 	}
 
-	public List getStoreList() {
-		return storesList;
+	public LinkedList getStoresList() {
+		return stores;
 	}	
+
+	public void setStoresList(LinkedList stores){
+		this.stores = stores;
+	}
 }

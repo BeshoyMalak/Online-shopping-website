@@ -2,38 +2,45 @@ import java.util.*;
 
 public class Store {
 	private String name, location, type;
-	private ProductsList products;
-	private StoreOwner storeOwner;
+	private int id;
+	private List products;
 
-	public Store(String name, String location, String type, StoreOwner storeOwner) {
+	public Store(int id, String name, String location, String type) {
+		this.id = id;
 		this.name = name;
 		this.location = location;
 		this.type = type;
-		this.storeOwner = storeOwner;
-		this.products = new ProductsList();
+		this.products = new LinkedList<Product>();
 	}
 	public void addProduct(Product product) {
-		products.addProduct(product);
+		products.add(product);
 	}
 	
+	public int getID() {
+		return id;
+	}
 	
+	public void setID(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
-		this.name=name;
+		this.name = name;
 	}
 	public String getLocation() {
 		return location;
 	}
 	public void setLocation(String location) {
-		this.location=location;
+		this.location = location;
 	}
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
-		this.type=type;
+		this.type = type;
 	}
 	public StoreOwner getStoreOwner() {
 		return storeOwner;
@@ -41,10 +48,21 @@ public class Store {
 	public void setStoreOwner(StoreOwner storeOwner) {
 		this.storeOwner=storeOwner;
 	}
-	public ProductsList getProductsList() {
+	public LinkedList getProductsList() {
 		return products;
 	}
-	public void setProductsList(ProductsList products){
-		this.products=products;
+
+	public void setProductsList(LinkedList products){
+		this.products = products;
+	}
+
+	public Product getProduct(String name) {
+		for (Iterator i = products.iterator(); i.hasNext(); ) {
+			Product product = (Product) i.next();
+			if (product.getName().equals(name)) {
+				return product;
+			}
+		}
+		return null;
 	}
 }

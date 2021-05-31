@@ -1,19 +1,30 @@
 import java.util.*;
 
-public class Buyer extends User {
+public class Administrator extends Customer {
 
-	public Buyer(String name, String password, String email) {
-		super(name,password,email);
+	public Administrator(String id, String name, String password, String email) {
+		super(id,name,password,email);
 	}
 
-	public void buy(ProductsList products) {
+	public boolean acceptStore() {
+
+	}
+
+	public void addProduct() {
+
+	}
+
+	public void addBrand() {
+
+	}
+	/*public boolean buy(ProductsList products) {
 		Product selectedProduct = this.selectProduct(products);
 		int quantity = selectQuantity();
 		String address = selectAddress();
 		if(Agree()) {
 			while(!Confirm(selectedProduct,quantity,address));
 		}
-	}
+	}*/
 
 	/*private Product selectProduct(ProductsList products) {
 		Scanner sc = new Scanner(System.in);
@@ -26,7 +37,7 @@ public class Buyer extends User {
 		return products.getProduct(name);
 	}*/
 
-	private int selectQuantity() {
+	/*private int selectQuantity() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\nWrite the quantity of your desired product: ");
 		return sc.nextInt();
@@ -52,5 +63,5 @@ public class Buyer extends User {
 		String input = sc.nextLine();
 		if (input.equals("yes")) { System.out.println("You have sucessfully bought your desired product.\n"); return true; }
 		else { return false; }		
-	}
+	}*/
 }

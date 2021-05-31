@@ -3,32 +3,39 @@ import java.util.*;
 public class Product {
 	private String name, category;
 	private double priceMax,priceMin,price;
-	private int quantity;
-	private Store store;
+	private int quantity,id;
+	private Brand brand;
 
-	public Product(String name, String category, double priceMin, double priceMax) {
+	public Product(int id, String name, String category, double priceMin, double priceMax) {
+		this.id = id;
 		this.name = name;
 		this.category = category;
 		this.priceMin = priceMin;
 		this.priceMax = priceMax;
-		this.store = null;
 		this.quantity = 0;
 		this.price = 0;
+		this.brand = null;
 	}
 
-	public void addToStore(Store store, int quantity, double price) {
-		this.store = store;
+	/*public void addToStore(int quantity, double price) {
 		this.quantity = quantity;
-		this.price = price;
+		this.price = price; //needs validation
+	}*/
+
+	public int getID() {
+		return id;
 	}
 	
-	
+	public void setID(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
 	
 	public void setName(String name) {
-		this.name=name;
+		this.name = name;
 	}
 	
 	public String getCategory() {
@@ -36,7 +43,7 @@ public class Product {
 	}
 	
 	public void setCategory(String category) {
-		this.category=category;
+		this.category = category;
 	}
 		
 	public double getPriceMin() {
@@ -44,7 +51,7 @@ public class Product {
 	}	
 	
 	public void setPriceMin(double priceMin) {
-		this.priceMin=priceMin;
+		this.priceMin = priceMin;
 	}
 	
 	public double getPriceMax() {
@@ -52,15 +59,31 @@ public class Product {
 	}
 	
 	public void setPriceMax(double priceMax) {
-		this.priceMax=priceMax;
+		this.priceMax = priceMax;
 	}
 	
-	public Store getStore() {
-		return store;
+	public Store getPrice() {
+		return price;
 	}
 	
-	public void setStore(Store store) {
-		this.store=store;
+	public void setPrice(Store store) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public Brand getBrand() {
+		return brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = brand;
 	}
 
 }

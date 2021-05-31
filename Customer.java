@@ -1,20 +1,26 @@
 import java.util.*;
 
-public class User {
+public class Customer {
 	private String name, password, email;
+	private int id;
 
-	public User(String name, String password, String email) {
+	public User(int id, String name, String password, String email) {
+		this.id = id;
 		this.name = name;
 		this.password = password;
 		this.email = email;
 	}
 
-	public boolean register(List registerdUsers) {
-		return !registerdUsers.contains(this);
+	public void register() {
+		
 	}
 
-	public boolean login(List registerdUsers) {
-		return registerdUsers.contains(this);
+	public void login() {
+		
+	}
+
+	public void buy() {
+
 	}
 	
 	public String getName() {
@@ -34,6 +40,14 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email=email;
+	}
+
+	public int getID() {
+		return id;
+	}
+
+	public void setID(int id) {
+		this.id = id;
 	}
 
 	protected Product selectProduct(ProductsList products) {
