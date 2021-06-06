@@ -1,22 +1,36 @@
 import java.util.*;
 
-public class Administrator extends Customer {
+public class Administrator extends Buyer {
+
+	private ProductAdder pAddr;
+	private BrandAdder bAddr;
+	private StoreAcceptor sAccptr;
 
 	public Administrator(String id, String name, String password, String email) {
 		super(id,name,password,email);
+		pAddr = new ProductAdder();
+		bAddr = new BrandAdder();
+		sAccptr = new StoreAcceptor();
 	}
 
-	public boolean acceptStore() {
-
+	public void setProductAdder(Product product) {
+		pAddr.addProduct(product);
 	}
 
-	public void addProduct() {
-
+	public void setBrandAdder(Brand brand) {
+		pAddr.addBrand(brand);
 	}
 
-	public void addBrand() {
-
+	public void setStoreAcceptor(Store store) {
+		pAddr.acceptStore(store);
 	}
+
+}
+	/*public boolean acceptStore(Store store) {
+
+	}*/
+
+
 	/*public boolean buy(ProductsList products) {
 		Product selectedProduct = this.selectProduct(products);
 		int quantity = selectQuantity();
@@ -64,4 +78,3 @@ public class Administrator extends Customer {
 		if (input.equals("yes")) { System.out.println("You have sucessfully bought your desired product.\n"); return true; }
 		else { return false; }		
 	}*/
-}

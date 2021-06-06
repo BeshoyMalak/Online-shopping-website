@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Customer {
+public class User {
 	private String name, password, email;
 	private int id;
 
@@ -9,18 +9,6 @@ public class Customer {
 		this.name = name;
 		this.password = password;
 		this.email = email;
-	}
-
-	public void register() {
-		
-	}
-
-	public void login() {
-		
-	}
-
-	public void buy() {
-
 	}
 	
 	public String getName() {
@@ -50,7 +38,7 @@ public class Customer {
 		this.id = id;
 	}
 
-	protected Product selectProduct(ProductsList products) {
+	/*protected Product selectProduct(ProductsList products) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\nWrite the name of your desired product: ");
 		String name = sc.nextLine();
@@ -59,5 +47,5 @@ public class Customer {
 			name = sc.nextLine();
 		}
 		return products.getProduct(name);
-	}
+	}*/
 }
