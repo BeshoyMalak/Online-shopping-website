@@ -1,3 +1,5 @@
+package onlineshopping;
+
 import java.util.*;
 
 public class Product {
@@ -62,7 +64,7 @@ public class Product {
 		this.priceMax = priceMax;
 	}
 	
-	public Store getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	

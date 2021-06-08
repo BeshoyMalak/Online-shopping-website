@@ -1,31 +1,27 @@
+package onlineshopping;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 
-public class Buyer extends User {
+public class ProductAdder{
 
-	//public Buyer(String id, String name, String password, String email) {
-		//super(id,name,password,email);
-	//}
-
-	public void buy() {
-		//buy a product
-		String pr_id,buyer_email;
-		int quantity;
+	public void addProduct(Product product) {
+		//add product to the system
 		String url = "jdbc:sqlserver://LAPTOP-1GASM60P\\SQLEXPRESS;databaseName = online_shopping";
 		String username = "Bishoy";
-		String password = "123456789"; //sql authentication
+		String password = "123456789";
 		try {
-			
 			Connection connection = DriverManager.getConnection(url, username, password); 
 			System.out.println("connected\n");
-			String sql = "Insert into buyed_pr(pr_id, buyer_email, quantity) Values(?,?,"
-			+ "?)";
+			String sql = "Insert into product(pname,brand,hprice,lprice,ptype,extra,exploration) Values(?,?,"
+			+ "?,?,?,'',0)";
 			PreparedStatement stat = connection.prepareStatement(sql);
-			stat.setString(1, pr_id);
-			stat.setString(2, buyer_email);
-			stat.setInt(3, quantity);
+			stat.setString(1, product.getName());
+			stat.setString(2, product.getBrand().getName());
+			stat.setDouble(3, product.getPriceMax());
+			stat.setDouble(4, product.getPriceMin());
+			stat.setString(5, product.getCategory());
 			int rows = stat.executeUpdate();//note that here it gets no arguments
 			if (rows>0)
 			{
@@ -34,5 +30,5 @@ public class Buyer extends User {
 			connection.close();
 		}catch(Exception e) {System.out.println(e);}
 	}
-	
+
 }
